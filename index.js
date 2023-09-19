@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const { Circle, Triangle, Square } = require("./Lib/shapes");
+const { Console } = require("console");
 
 function writeToSVGFile(fileName, answers) {
   let svgString =
@@ -18,7 +19,6 @@ function writeToSVGFile(fileName, answers) {
 
   shapeChoice.setColor(answers.shapeBackgroundColor);
   svgString += shapeChoice.render();
-
   svgString += `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>`;
   svgString += "</g>";
   svgString += "</svg>";
@@ -38,19 +38,19 @@ function promptUser() {
         message: "Please type the text you would like displayed (Can not exceed 3 characters.)",
       },
       {
-        type: "checkbox",
+        type: "list",
         name: "textColor",
         message: "Please choose what color you would like your text to be.",
         choices: ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Black", "White"],
       },
       {
-        type: "checkbox",
+        type: "list",
         name: "shapeChoice",
         message: "Please choose what shape you would like for your logo.",
         choices: ["Circle", "Triangle", "Square"],
       },
       {
-        type: "checkbox",
+        type: "list",
         name: "shapeBackgroundColor",
         message: "Please choose what color you would like your background to be for the shape of your logo.",
         choices: ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Black", "White"],
@@ -65,5 +65,4 @@ function promptUser() {
       }
     });
 }
-
-promptUser();
+promptUser()
