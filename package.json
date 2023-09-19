@@ -1,0 +1,19 @@
+{
+    "name": "Logo-Creator-SVG",
+    "version": 3,
+    "description": "Command line tool used to create a basic logo in the form of a SVG file",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "private": true,
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "inquirer": "^8.2.4"
+    },
+    "devDependencies": {
+        "jest": "^29.5.0"
+    }
+}
